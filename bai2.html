@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<script LANGUAGE="JavaScript">
+		function phepCong(form){
+			a = eval(form.a.value);
+			b=eval(form.b.value);
+			c=a+b;
+			form.result.value = c;
+		}
+		function phepTru(form){
+			a = eval(form.a.value);
+			b=eval(form.b.value);
+			c=a-b;
+			form.result.value = c;
+		}
+		function phepNhan(form){
+			a = eval(form.a.value);
+			b=eval(form.b.value);
+			c=a*b;
+			form.result.value = c;
+		}
+		function phepChia(form){
+			a = eval(form.a.value);
+			b=eval(form.b.value);
+			c=a/b;
+			form.result.value = c;
+		}
+		function luyThua(form){
+			a = eval(form.a.value);
+			b=eval(form.b.value);
+			c=Math.pow(a,b);
+			form.result.value = c;
+		}
+	
+		function inKQ(){
+			var hoTen = document.getElementById('txtHoTen').value;
+			var diem = parseFloat(documnet.getElementById('diem').value);
+			var thuong =0;
+			if(diem>=20 && diem<=25){
+				thuong = 5;
+			}
+			else if(diem>=15 && diem< 20){
+				thuong=3;
+			}
+			else if(diem>=10 && diem<15){
+				thuong=1;
+			}
+			else{
+				thuong=0;
+			}
+			var tongDiem = diem+thuong;
+			var xepLoai = '';
+			if(tongDiem>=20 && tongDiem< 30){
+				xepLoai = 'A';
+			}
+			else if(tongDiem>=15 && tongDiem< 20){
+				xepLoai='B';
+			}
+			else if(tongDiem>=10 && tongDiem<15){
+				xepLoai='C';
+			}
+			else{
+				xepLoai='D';
+			}
+			var ketQua = "Họ tên: " + hoTen + "<br>Xếp loại: " + xepLoai
+				ketQua+= "<br> Tổng điểm: "+ tongDiem +"<br>Điểm thi: "+ diem
+ketQuan+= "<br>Điểm thưởng: " + thuong;
+			document.getElementById('ketQua').innerHTML = ketQua;
+			}
+		</script>
+	</head>
+	<body>
+		<form name="formx">
+			<p><input type="number" size="4" value="12" name="a">
+			<input type="button" value=" + " onClick="phepCong(this.form)">
+			<input type="button" value=" - " onClick="phepTru(this.form)">
+			<input type="button" value=" * " onClick="phepNhan(this.form)">
+			<input type="button" value=" / " onClick="phepChia(this.form)">
+			<input type="button" value=" ^ " onClick="luyThua(this.form)">
+			<input type="number" size="4" value="3" name="b">
+			=<input type="number" value=" 0 " name="result" size="9"></p>
+		</form>
+		<br>
+		<form name= formDiem>
+				Họ và tên: <input type="text" size= "10" id="txtHoTen">
+				Điểm thi: <input type="number" size= "10" id="diem">				
+				<button type="button" onClick="inKQ()">In kết quả</button>
+		</form>
+	</body>
+
+</html>
